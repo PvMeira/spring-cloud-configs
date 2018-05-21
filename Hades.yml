@@ -25,6 +25,8 @@ spring:
          path: /h2
 #Flyway
 endpoints:
+      logview:
+          path: log
       flyway:
           web:
           enabled: true
@@ -33,10 +35,6 @@ flyway:
 # Log configuration
 logging:
     config: file:logback-spring.xml
-endpoints: 
-      logview:
-         path: log
-
 #Properties
 auth:
    token:
