@@ -35,4 +35,11 @@ spring:
      console:
          enabled: true
          path: /h2
+#Flyway
+endpoints:
+      flyway:
+          web:
+          enabled: true
+flyway:
+    baseline-on-migrate: true
 
