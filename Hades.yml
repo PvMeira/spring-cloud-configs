@@ -13,24 +13,12 @@ eureka:
   server:
     wait-time-in-ms-when-sync-empty: 3000
 
-security:
-    oauth2:
-        client:
-            access-token-validity-seconds: 4800
-            authorized-grant-types: password,refresh_token
-            client-id: alpha
-            client-secret: $2a$10$p9Pk0fQNAQSesI4vuvKA0OZanDD2
-            resource-ids: resources
-            scope: read,write
-
 spring:
     datasource:
         driver-class-name: org.h2.Driver
         password:
         url: jdbc:h2:mem:testdb
         username: sa
-        schema: classpath:/sql/schema.sql
-        data: classpath:/sql/data.sql
     h2:
      console:
          enabled: true
@@ -42,4 +30,22 @@ endpoints:
           enabled: true
 flyway:
     baseline-on-migrate: true
+# Log configuration
+logging:
+    config: file:logback-spring.xml
+endpoints: 
+      logview:
+         path: log
 
+#Properties
+auth:
+   token:
+      expiration:
+            time: 864000
+      validity:
+            time: 300
+   client:
+        id: alpha
+        secret: horizon
+        scope: read,write
+        authorized-grant-types: password,refresh_token,client-credentials
