@@ -11,3 +11,10 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
     wait-time-in-ms-when-sync-empty: 3000
+    
+# Log configuration
+logging:
+    config: file:logback-spring.xml
+endpoints:
+      logview:
+          path: log
